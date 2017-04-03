@@ -1,0 +1,121 @@
+ body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+            }
+            form {
+                font-size: 1.5em;
+            }
+            .scrambled {
+                font-family: monospace;
+                font-size: 2em;
+                color: red;
+            }
+
+            .game {
+                background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTvDw4XiarvQ1XeF8DEvtgwNDwzYInJew7ond7oF-Mhhlauk6vWw');
+                text-align: center;
+                overflow: hidden;
+                height: 730px;
+                border: 15px solid yellow;
+            }
+
+            h1 {
+                font-size: 2.6em;
+                margin: 0;
+                color: #37f707;
+                padding: 50px;
+                text-shadow: 2px 2px black;
+            } 
+
+            h2 {
+                color: black;
+                font-size: 1.8em;
+                text-shadow: 2px 2px greenyellow;
+            }  
+
+            input#answer {
+                font-size: 1.4em;
+                padding: 10px;
+                display: block;
+                margin: auto;
+                text-align: center;
+                background-color: rgba(251, 186, 197, 0.97);
+            }
+
+            .scrambled {
+                font-family: monospace;
+                font-size: 2em;
+                color: red;
+                display: block;
+                font-weight: bold;
+                text-shadow: 1px 1px yellow;
+            }
+
+            button {
+                width: 170px;
+                height: 40px;
+                margin: 3px;
+            }
+
+            button#check {
+                background-color: #f5bb29;
+                font-size: 1em;
+                margin-top: 13px;
+                color: #2196F3;
+            }
+
+            .game-background {
+                background-color: white;
+                width: 693px;
+                margin: auto;
+                height: 527px;
+                margin-top: 85px;
+                background-color: rgba(255, 255, 255, 0.71);
+            }
+
+            button#change {
+                background-color: #38dc38;
+                font-size: 1.3em;
+                color: yellow;
+            }
+
+            #result {
+                width: 697px;
+                height: 50px;
+                background-color: #00f9ff;
+                margin-top: 30px;
+                display: none;
+                color: #7250af;
+                font-size: 1.9em;
+                line-height: 44.5px;
+                font-weight: bold;
+            }
+
+            #balloon {
+                position: absolute;
+                top: 264px;
+                left: 113px;
+                display: none;
+            }
+
+            #balloon2 {
+                position: absolute;
+                top: 264px;
+                right: 113px;
+                display: none;
+            }
+
+            #sadFace {
+                position: absolute;
+                top: 264px;
+                left: 113px;
+                display: none;
+            }
+
+            #sadFace1 {
+                position: absolute;
+                top: 264px;
+                right: 113px;
+                display: none;
+            }
+    

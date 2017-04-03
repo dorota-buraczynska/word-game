@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Project: Word game </title>
+    <link rel="stylesheet" type="text/css" href="word-game.css">
+</head>
+
+<body>
+    <img class="balloons" id="balloon" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQj20-1SgktmA88SB2J_1_8WmwI3kYGNNTW2xRhd3OsasFhmJctOQ">
+    <img class="balloons" id="balloon2" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQj20-1SgktmA88SB2J_1_8WmwI3kYGNNTW2xRhd3OsasFhmJctOQ">
+    <img class="faces" id="sadFace" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr7rFK_6rpL8zkmnlnCCy5qpy2GFR4QUcEgME2tais0TRrumqN">
+    <img class="faces" id="sadFace1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr7rFK_6rpL8zkmnlnCCy5qpy2GFR4QUcEgME2tais0TRrumqN">
+    <div class="game">
+        <div class="game-background">
+            <h1>WORD GAME</h1>
+            <h2>Unscramble these letters to form a word:</h2>
+            <form id="joke-form">
+                <label>
+                    <Br>
+                    <span class="scrambled"></span>
+                    <br>
+                    <input id="answer" type="text" size="10" autofocus>
+                </label>
+                <button id="check" type="submit">Check</button>
+            </form>
+            <div id="newWord">
+                <button id="change" type="button">New Word</button>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    var $answer = $("#answer");
+    var results = ["YOU DID IT AGAIN", "YOU ARE AMAZING", "I'VE NEVER MET SO SMART PERSON", "BRILLIANT"];
+    var resultsNegative = ["REALLY???", "I THINK... NEVER MIND", "SOMETIMES YOU SHOULD THINK TWICE", "NOPE"];
+    var answers = ["piceurt", "atc", "werlof", "odro"];
+    var correctAnswers = ["picture", "cat", "flower", "door"];
+    var currentQuestion;
+
+    var scrambleWord = function(word) {
+        return word.split('').sort(function() {
+            return Math.random() < 0.5;
+        }).join('');
+    };
+
+    var wordDisplay = function() {
+        $(".scrambled").text(answers[currentQuestion].toUpperCase());
+    };
+
+    var getRandomQuestion = function() {
+        currentQuestion = Math.floor(Math.random() * answers.length);
+    };
+
+    var positive = function() {
+        var randResult = Math.floor(Math.random() * results.length);
+        $("#result")
+            .text(results[randResult])
+            .css("display", "block");
+        $(".balloons").css("display", "block");
+        $(".faces").css("display", "none");
+    };
+
+    var negative = function() {
+        var randResultNegative = Math.floor(Math.random() * resultsNegative.length);
+        $("#result")
+            .text(resultsNegative[randResultNegative])
+            .css("display", "block");
+        $(".balloons").css("display", "none");
+        $(".faces").css("display", "block");
+
+    };
+
+    getRandomQuestion();
+    wordDisplay();
+
+    $("#newWord").on("click", function(event) {
+        $answer.val("");
+        $(".balloons").css("display", "none");
+        $(".faces").css("display", "none");
+        getRandomQuestion();
+        wordDisplay();
+    });
+
+    $("#joke-form").on("submit", function(event) {
+        event.preventDefault();
+        var currentCorrectAnswer = correctAnswers[currentQuestion];
+        var currentUserAnswer = $answer.val();
+        console.log(currentCorrectAnswer, currentUserAnswer);
+        if (currentUserAnswer.toLowerCase() === currentCorrectAnswer) {
+            positive();
+        } else {
+            negative();
+        }
+    });
+    </script>
+</body>
+
+</html>
